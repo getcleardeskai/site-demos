@@ -771,7 +771,7 @@
     if(q.includes('service') || q.includes('offer')){
       addMsg('We offer four services: Maintenance Clean (from $120), Biweekly Plan (from $140), Deep Clean (from $400), and Commercial Cleaning (custom quote, from $150).', 'bot');
       addQuickReplies(['Get a Quote']);
-    } else if(q.includes('price') || q.includes('cost') || q.includes('quote')){
+    } else if(q.includes('pric') || q.includes('cost') || q.includes('quote')){
       state.flow = 'quote-beds';
       addMsg('Happy to help. How many bedrooms?', 'bot');
       addQuickReplies(['1–2','3–4','5+']);
