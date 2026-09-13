@@ -43,6 +43,11 @@
     --fs-h3: 21px;      /* row/card headings */
     --fs-h2: clamp(34px, 4.4vw, 56px); /* section headings */
     --fs-h1: clamp(34px, 6.5vw, 84px); /* hero only */
+
+    /* --- radius: softened, used only where a card/panel earns its place --- */
+    --r-sm: 6px;
+    --r-md: 10px;
+    --r-lg: 16px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -66,7 +71,7 @@
   }
   .btn{
     display:inline-flex;align-items:center;gap:10px;
-    padding:16px 30px;border-radius:2px;
+    padding:16px 30px;border-radius:var(--r-md);
     font-weight:700;font-size:14.5px;letter-spacing:0.04em;text-transform:uppercase;
     text-decoration:none;cursor:pointer;border:1.5px solid var(--black);
     transition:transform .18s ease, background .18s ease, color .18s ease;
@@ -75,6 +80,15 @@
   .btn-solid:hover{background:var(--iron);transform:translateY(-2px);}
   .btn-ghost{background:transparent;color:var(--black);border-color:var(--black);}
   .btn-ghost:hover{background:var(--black);color:var(--white);transform:translateY(-2px);}
+
+  /* ---------- CARD: used sparingly, only for the estimator/intake tools ---------- */
+  .card{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);
+    box-shadow:0 20px 40px rgba(16,17,18,0.07);
+  }
+  .card-dark{
+    background:var(--iron);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r-lg);
+  }
 
   /* ---------- HEADER ---------- */
   header{
@@ -117,6 +131,36 @@
   .trust-item{display:flex;align-items:center;gap:12px;font-size:13.5px;font-weight:600;letter-spacing:0.02em;color:var(--mist);}
   .trust-item b{color:var(--white);font-weight:800;}
   .trust-item svg{width:18px;height:18px;flex:none;stroke:var(--accent);}
+
+  /* ---------- HOW IT WORKS: sticky steps + pinned estimator card ---------- */
+  .how-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;}
+  .how-grid > *{min-width:0;}
+  .how-steps{display:flex;flex-direction:column;}
+  .how-step{padding:var(--sp-6) 0;border-top:1px solid var(--line);}
+  .how-step:first-child{border-top:none;padding-top:0;}
+  .how-step .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--fog);letter-spacing:0.05em;display:block;margin-bottom:10px;}
+  .how-step h3{font-size:var(--fs-h3);margin:0 0 8px;}
+  .how-step p{color:var(--steel);font-size:var(--fs-body);line-height:1.6;margin:0;max-width:420px;}
+  .how-sticky{position:sticky;top:100px;}
+
+  /* Estimator card */
+  .estimator{padding:var(--sp-6);}
+  .estimator-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp-5);gap:12px;}
+  .estimator-head .eyebrow{margin:0;}
+  .estimator-badge{background:var(--paper);color:var(--steel);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;padding:5px 10px;border-radius:999px;white-space:nowrap;}
+  .estimator label{display:block;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fog);font-weight:700;margin:0 0 6px;}
+  .estimator .field{margin-bottom:var(--sp-4);}
+  .estimator select{
+    width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--r-sm);
+    background:var(--paper);color:var(--charcoal);font-family:inherit;font-size:14.5px;outline:none;
+  }
+  .estimator select:focus{border-color:var(--charcoal);}
+  .estimator-result{margin-top:var(--sp-5);padding-top:var(--sp-5);border-top:1px solid var(--line);}
+  .estimator-result .range{font-family:'Anton',sans-serif;font-size:38px;line-height:1;color:var(--charcoal);}
+  .estimator-result .range-label{font-size:12px;color:var(--fog);text-transform:uppercase;letter-spacing:0.06em;margin-top:6px;}
+  .estimator-financing{margin-top:14px;padding:12px 14px;background:var(--paper);border-radius:var(--r-sm);font-size:13.5px;color:var(--iron);display:flex;align-items:center;gap:10px;}
+  .estimator-financing svg{width:16px;height:16px;flex:none;stroke:var(--accent);}
+  .estimator-disclaimer{font-size:11.5px;color:var(--fog);margin-top:14px;line-height:1.5;}
 
   /* ---------- SECTION shell ---------- */
   section{padding:var(--sp-9) 0;}
@@ -206,7 +250,7 @@
   form.quote{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1;}
   form.quote input, form.quote select, form.quote textarea{
     background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);
-    color:var(--white);padding:15px 16px;font-family:inherit;font-size:14.5px;border-radius:2px;outline:none;
+    color:var(--white);padding:15px 16px;font-family:inherit;font-size:14.5px;border-radius:var(--r-md);outline:none;
     transition:border-color .2s ease, background .2s ease;
   }
   form.quote input::placeholder, form.quote textarea::placeholder{color:var(--fog);}
@@ -216,7 +260,7 @@
   form.quote label{font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fog);font-weight:700;margin-bottom:-6px;}
   form.quote .row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
   form.quote button{margin-top:8px;background:var(--white);color:var(--black);border:none;padding:16px;font-weight:800;
-    letter-spacing:0.05em;text-transform:uppercase;font-size:14px;border-radius:2px;cursor:pointer;transition:background .2s ease;}
+    letter-spacing:0.05em;text-transform:uppercase;font-size:14px;border-radius:var(--r-md);cursor:pointer;transition:background .2s ease;}
   form.quote button:hover{background:var(--accent);}
   .form-note{font-size:12px;color:var(--fog);margin-top:2px;}
   .consent-row{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--mist);line-height:1.5;margin-top:2px;}
@@ -255,6 +299,8 @@
     .why-flow{grid-template-columns:1fr;}
     .why-item:nth-child(2n){margin-top:0;}
     .cta-panel{grid-template-columns:1fr;padding:44px 26px;}
+    .how-grid{grid-template-columns:1fr;gap:40px;}
+    .how-sticky{position:static;}
   }
   @media (max-width:560px){
     section{padding:72px 0;}
@@ -287,6 +333,7 @@
 <header>
   <div class="nav">
     <nav class="links">
+      <a href="#how-it-works">Free Estimate</a>
       <a href="#services">Services</a>
       <a href="#work">Our Work</a>
       <a href="#about">About</a>
@@ -324,6 +371,84 @@
     <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg> 0% Interest Financing Available</div>
   </div>
 </div>
+
+<section id="how-it-works">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">How It Works</div>
+      <h2>From a text to a finished room.</h2>
+      <p>No sales pitch, no waiting around for a callback. Here's exactly what happens after you reach out.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-steps">
+        <div class="how-step">
+          <span class="num">01</span>
+          <h3>You reach out</h3>
+          <p>Call, text, or use the estimator to the right. Takes about a minute.</p>
+        </div>
+        <div class="how-step">
+          <span class="num">02</span>
+          <h3>We walk the space</h3>
+          <p>Joey comes out, looks at the actual room, and gives you a real number, not a guess over the phone.</p>
+        </div>
+        <div class="how-step">
+          <span class="num">03</span>
+          <h3>You approve, we schedule</h3>
+          <p>Financing sorted if you want it, a start date locked in, no surprises added later.</p>
+        </div>
+        <div class="how-step">
+          <span class="num">04</span>
+          <h3>One crew, start to finish</h3>
+          <p>The same people who quoted the job build it. You're not managing subcontractors.</p>
+        </div>
+      </div>
+      <div class="how-sticky">
+        <div class="card estimator">
+          <div class="estimator-head">
+            <div class="eyebrow">Try It Now</div>
+            <span class="estimator-badge">Free &middot; No Signup</span>
+          </div>
+          <h3 style="font-size:26px;margin-bottom:20px;">Get a Ballpark Estimate</h3>
+          <div class="field">
+            <label for="est-type">Project Type</label>
+            <select id="est-type">
+              <option value="basement">Basement Remodel / Walkout</option>
+              <option value="kitchen">Kitchen</option>
+              <option value="bathroom">Bathroom</option>
+              <option value="fireplace">Fireplace</option>
+              <option value="general">General Remodeling</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="est-size">Approximate Size</label>
+            <select id="est-size">
+              <option value="0.7">Small</option>
+              <option value="1" selected>Medium</option>
+              <option value="1.4">Large</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="est-finish">Finish Level</label>
+            <select id="est-finish">
+              <option value="0.85">Standard</option>
+              <option value="1.15">Premium</option>
+            </select>
+          </div>
+          <div class="estimator-result">
+            <div class="range" id="est-range">$10,200 &ndash; $15,300</div>
+            <div class="range-label">Estimated Project Range</div>
+            <div class="estimator-financing">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
+              <span>As low as <b id="est-monthly">$1,063</b>/mo with 0% financing (12 mo)</span>
+            </div>
+            <div class="estimator-disclaimer">Rough estimate for planning only &mdash; your real number comes from an in-person walkthrough, free with no obligation.</div>
+          </div>
+          <a href="#quote" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:20px;">Turn This Into a Real Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="services">
   <div class="wrap">
@@ -479,13 +604,27 @@
         </div>
       </div>
       <form class="quote" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks, we\'ll be in touch!'; this.querySelector('button').style.background='var(--accent)';">
-        <label>Name</label>
-        <input type="text" placeholder="Your full name" required>
         <div class="row">
+          <div>
+            <label>Name</label>
+            <input type="text" placeholder="Your full name" required>
+          </div>
           <div>
             <label>Phone</label>
             <input type="tel" placeholder="(313) 000-0000" required>
           </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Email</label>
+            <input type="email" placeholder="you@email.com">
+          </div>
+          <div>
+            <label>City</label>
+            <input type="text" placeholder="e.g. Dearborn">
+          </div>
+        </div>
+        <div class="row">
           <div>
             <label>Project Type</label>
             <select required>
@@ -496,6 +635,16 @@
               <option>Fireplace</option>
               <option>Commercial</option>
               <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label>When Are You Hoping to Start</label>
+            <select>
+              <option value="" disabled selected>Select one</option>
+              <option>As soon as possible</option>
+              <option>Within 1-3 months</option>
+              <option>3-6 months</option>
+              <option>Just getting quotes</option>
             </select>
           </div>
         </div>
@@ -536,6 +685,35 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Free ballpark estimator — client-side only, no backend, no data leaves the page.
+  // Rough base ranges for Metro Detroit reno work; real number always comes from a walkthrough.
+  const ESTIMATOR_BASE = {
+    basement:  [15000, 45000],
+    kitchen:   [8000, 30000],
+    bathroom:  [6000, 18000],
+    fireplace: [3000, 9000],
+    general:   [5000, 25000],
+  };
+  function updateEstimator(){
+    const type = document.getElementById('est-type').value;
+    const size = parseFloat(document.getElementById('est-size').value);
+    const finish = parseFloat(document.getElementById('est-finish').value);
+    const [baseLow, baseHigh] = ESTIMATOR_BASE[type];
+    const round100 = n => Math.round(n / 100) * 100;
+    const low = round100(baseLow * size * finish);
+    const high = round100(baseHigh * size * finish);
+    const fmt = n => '$' + n.toLocaleString('en-US');
+    document.getElementById('est-range').textContent = fmt(low) + ' – ' + fmt(high);
+    const monthly = Math.round(((low + high) / 2) / 12);
+    document.getElementById('est-monthly').textContent = fmt(monthly);
+  }
+  ['est-type','est-size','est-finish'].forEach(id => {
+    document.getElementById(id).addEventListener('change', updateEstimator);
+  });
+  updateEstimator();
+</script>
 
 </body>
 </html>
