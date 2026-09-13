@@ -103,7 +103,8 @@
   .brand-mark-text .l1{display:block;font-size:15px;font-weight:500;}
   .brand-mark-text .l2{display:block;font-size:19px;font-weight:600;}
   .nav-cta{display:flex;align-items:center;gap:18px;justify-self:end;}
-  .nav-phone{font-size:14px;font-weight:700;text-decoration:none;color:var(--ink);white-space:nowrap;font-family:'IBM Plex Mono',monospace;}
+  .nav-phone{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;text-decoration:none;color:var(--ink);white-space:nowrap;font-family:'IBM Plex Mono',monospace;}
+  .nav-phone svg{width:16px;height:16px;stroke:currentColor;flex:none;}
 
   /* ---------- HERO ---------- */
   .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;}
@@ -309,6 +310,13 @@
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:980px){
     nav.links{display:none;}
+    .nav{display:flex;justify-content:space-between;}
+    .brand-mark{flex:1;min-width:0;justify-content:flex-start;}
+    .brand-mark-text{min-width:0;}
+    .brand-mark-text .l2{white-space:normal;}
+    .nav-cta{flex:none;}
+    .nav-phone{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--ink);justify-content:center;padding:0;}
+    .nav-phone-label{display:none;}
     .service-feature{grid-template-columns:1fr;gap:32px;}
     .service-feature .photo{order:-1;aspect-ratio:16/10;}
     .service-row:nth-child(even){margin-left:0;}
@@ -333,14 +341,17 @@
     .about-stats{grid-template-columns:1fr;gap:18px;}
     .foot-grid{flex-direction:column;align-items:flex-start;}
     .foot-links{justify-content:flex-start;}
-    .nav{padding:10px 16px;gap:8px;}
-    .brand-mark{gap:8px;}
-    .brand-mark-icon{height:38px;}
-    .brand-mark-text .l1{font-size:11px;}
-    .brand-mark-text .l2{font-size:14px;}
-    .nav-cta{gap:8px;}
-    .nav-phone{font-size:11px;}
-    .nav-cta .btn{padding:9px 12px;font-size:10.5px;}
+    .nav{padding:10px 10px;gap:6px;display:flex;justify-content:space-between;}
+    .brand-mark{gap:5px;flex:1;min-width:0;justify-content:flex-start;align-items:center;}
+    .brand-mark-icon{height:30px;}
+    .brand-mark-text{min-width:0;line-height:1.22;}
+    .brand-mark-text .l1{font-size:9px;}
+    .brand-mark-text .l2{font-size:10.5px;white-space:normal;}
+    .nav-cta{gap:5px;flex:none;}
+    .nav-phone{font-size:11px;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ink);justify-content:center;padding:0;}
+    .nav-phone-label{display:none;}
+    .nav-phone svg{display:block;width:14px;height:14px;}
+    .nav-cta .btn{padding:8px 10px;font-size:10px;}
     .why-flow{grid-template-columns:1fr;}
     .service-area-bar .wrap{flex-direction:column;gap:6px;}
   }
@@ -361,7 +372,7 @@
       <span class="brand-mark-text"><span class="l1">Click On</span><span class="l2">Construction &amp; Remodeling</span></span>
     </a>
     <div class="nav-cta">
-      <a class="nav-phone" href="tel:+13136002077">Contact</a>
+      <a class="nav-phone" href="tel:+13136002077"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="nav-phone-label">Contact</span></a>
       <a class="btn btn-solid" href="#quote" style="padding:12px 22px;font-size:12.5px;">Get In Touch</a>
     </div>
   </div>
