@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click On Construction &amp; Remodeling | Metro Detroit Renovation Contractor</title>
+<meta name="description" content="Licensed, insured renovation contractor serving Metro Detroit. Basement remodels, walkouts, kitchens, bathrooms, fireplaces &amp; commercial flooring. Free estimates.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* --- color tokens --- */
+    --black:#101112;
+    --charcoal:#1c1d1f;
+    --iron:#2b2c2f;
+    --steel:#54565c;
+    --fog:#8b8d93;
+    --mist:#d8d9dc;
+    --paper:#f4f4f3;
+    --white:#ffffff;
+    --accent:#c9a24b; /* small warm metal accent, used sparingly */
+    --line: rgba(16,17,18,0.10);
+    --shadow: 0 20px 50px rgba(16,17,18,0.14);
+    --maxw: 1180px;
+
+    /* --- spacing scale: 4px base, used instead of picking pixel values by feel --- */
+    --sp-1: 4px;
+    --sp-2: 8px;
+    --sp-3: 14px;
+    --sp-4: 20px;
+    --sp-5: 28px;
+    --sp-6: 40px;
+    --sp-7: 60px;
+    --sp-8: 88px;
+    --sp-9: 110px; /* section vertical padding */
+
+    /* --- type scale: minor-third-ish, used for all headings/body/labels --- */
+    --fs-label: 12px;   /* eyebrows, mono labels */
+    --fs-body: 15.5px;  /* paragraph text */
+    --fs-body-lg: 16.5px;
+    --fs-h3: 21px;      /* row/card headings */
+    --fs-h2: clamp(34px, 4.4vw, 56px); /* section headings */
+    --fs-h1: clamp(34px, 6.5vw, 84px); /* hero only */
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  html,body{overflow-x:hidden;max-width:100%;}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+    background:var(--paper);
+    color:var(--charcoal);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:'Anton',Inter,sans-serif;font-weight:400;letter-spacing:0.005em;margin:0;line-height:1.08;text-transform:uppercase;}
+  a{color:inherit;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:var(--fs-label);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--steel);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 30px;border-radius:2px;
+    font-weight:700;font-size:14.5px;letter-spacing:0.04em;text-transform:uppercase;
+    text-decoration:none;cursor:pointer;border:1.5px solid var(--black);
+    transition:transform .18s ease, background .18s ease, color .18s ease;
+  }
+  .btn-solid{background:var(--black);color:var(--white);}
+  .btn-solid:hover{background:var(--iron);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:var(--black);border-color:var(--black);}
+  .btn-ghost:hover{background:var(--black);color:var(--white);transform:translateY(-2px);}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(244,244,243,0.86);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;padding:12px 28px;max-width:var(--maxw);margin:0 auto;}
+  nav.links{display:flex;gap:28px;align-items:center;}
+  nav.links a{font-size:13px;font-weight:600;text-decoration:none;color:var(--iron);letter-spacing:0.01em;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;}
+  .brand-stamp{display:flex;justify-content:center;}
+  .brand-stamp img{height:64px;width:auto;display:block;}
+  .nav-cta{display:flex;align-items:center;gap:18px;justify-self:end;}
+  .nav-phone{font-size:14px;font-weight:700;text-decoration:none;color:var(--black);white-space:nowrap;font-family:'IBM Plex Mono',monospace;}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .menu-btn span{display:block;width:24px;height:2px;background:var(--black);margin:5px 0;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 38%;
+    filter:grayscale(0.4) contrast(1.08) brightness(0.88);}
+  .hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(16,17,18,0.35) 0%, rgba(16,17,18,0.35) 40%, rgba(16,17,18,0.92) 100%);}
+  .hero-inner{position:relative;z-index:2;color:var(--white);padding:0 28px 90px;max-width:var(--maxw);margin:0 auto;width:100%;}
+  .hero .eyebrow{color:var(--mist);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+  .hero .eyebrow::before{content:'';width:34px;height:1px;background:var(--mist);}
+  .hero h1{font-size:clamp(34px,6.5vw,84px);color:#f0f0ef;max-width:820px;overflow-wrap:break-word;}
+  .hero p.lede{font-size:clamp(16px,2vw,20px);color:var(--mist);max-width:560px;margin:26px 0 36px;font-weight:400;line-height:1.55;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero .btn-ghost{border-color:var(--white);color:var(--white);}
+  .hero .btn-ghost:hover{background:var(--white);color:var(--black);}
+  .hero .btn-solid{background:var(--white);color:var(--black);border-color:var(--white);}
+  .hero .btn-solid:hover{background:var(--mist);}
+  .scroll-cue{position:absolute;bottom:26px;right:28px;z-index:2;color:var(--mist);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+    writing-mode:vertical-rl;display:flex;align-items:center;gap:10px;}
+  .scroll-cue::after{content:'';width:1px;height:46px;background:var(--mist);}
+
+  /* ---------- TRUST BAR ---------- */
+  .trustbar{background:var(--black);color:var(--white);padding:26px 0;}
+  .trustbar .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:22px;}
+  .trust-item{display:flex;align-items:center;gap:12px;font-size:13.5px;font-weight:600;letter-spacing:0.02em;color:var(--mist);}
+  .trust-item b{color:var(--white);font-weight:800;}
+  .trust-item svg{width:18px;height:18px;flex:none;stroke:var(--accent);}
+
+  /* ---------- SECTION shell ---------- */
+  section{padding:var(--sp-9) 0;}
+  .sec-head{max-width:640px;margin-bottom:56px;}
+  .sec-head .eyebrow{margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .sec-head .eyebrow::before{content:'';width:34px;height:1px;background:var(--steel);}
+  .sec-head h2{font-size:clamp(34px,4.4vw,56px);}
+  .sec-head p{color:var(--steel);font-size:16px;margin-top:16px;line-height:1.6;max-width:520px;}
+
+  /* ---------- SERVICES: signature feature + flowing list, no boxes ---------- */
+  .service-feature{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:88px;}
+  .service-feature > *{min-width:0;}
+  .service-feature .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--fog);letter-spacing:0.08em;margin-bottom:18px;display:block;}
+  .service-feature h3{font-size:clamp(28px,3vw,40px);margin-bottom:18px;}
+  .service-feature p{color:var(--steel);font-size:16.5px;line-height:1.7;max-width:440px;}
+  .service-feature .photo{aspect-ratio:4/5;overflow:hidden;}
+  .service-feature .photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.15) contrast(1.05);}
+
+  .service-list{display:flex;flex-direction:column;}
+  .service-row{display:grid;grid-template-columns:90px 1fr;gap:28px;padding:34px 0;}
+  .service-row:first-child{padding-top:0;}
+  .service-row .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--fog);letter-spacing:0.05em;padding-top:4px;}
+  .service-row h3{font-size:21px;margin:0 0 8px;}
+  .service-row p{color:var(--steel);font-size:15px;line-height:1.6;margin:0;max-width:460px;}
+  .service-row:nth-child(even){margin-left:8%;}
+
+  /* ---------- GALLERY: two deliberate columns, no boxes ---------- */
+  .gallery-flow{display:grid;grid-template-columns:1fr 1fr;gap:60px 28px;align-items:start;}
+  .gallery-flow > *{min-width:0;}
+  .gallery-col{display:flex;flex-direction:column;gap:60px;}
+  .gallery-col:last-child{margin-top:90px;}
+  .gallery-flow figure{margin:0;}
+  .gallery-flow img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;
+    filter:grayscale(0.1) contrast(1.04) saturate(1.02);}
+  .gallery-flow figcaption{margin-top:14px;}
+  .gallery-flow figcaption .cap-title{font-size:16px;font-weight:600;display:block;}
+  .gallery-flow figcaption .cap-tag{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--fog);letter-spacing:0.05em;text-transform:uppercase;}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--black);color:var(--white);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+  .about-grid > *{min-width:0;}
+  .about .eyebrow{color:var(--fog);}
+  .about .eyebrow::before{background:var(--fog);}
+  .about h2{font-size:clamp(34px,4.4vw,52px);color:#f0f0ef;margin-bottom:24px;}
+  .about p{color:var(--mist);font-size:16.5px;line-height:1.75;margin:0 0 20px;}
+  .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.14);}
+  .about-stats div b{display:block;font-family:'Anton',sans-serif;font-size:36px;color:var(--white);}
+  .about-stats div span{font-size:12px;letter-spacing:0.05em;color:var(--fog);text-transform:uppercase;}
+  .about-photo{position:relative;aspect-ratio:4/5;overflow:hidden;}
+  .about-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.45) contrast(1.1);}
+  .about-photo::before{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,0.2);margin:16px;pointer-events:none;}
+
+  /* ---------- TESTIMONIALS: flowing stack, no card boxes ---------- */
+  .testi-flow{display:flex;flex-direction:column;max-width:820px;}
+  .testi-row{padding:40px 0;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;}
+  .testi-row > *{min-width:0;}
+  .testi-row:first-child{padding-top:0;}
+  .stars{color:var(--accent);font-size:14px;letter-spacing:2px;margin-bottom:14px;display:block;}
+  .testi-row p{font-size:19px;line-height:1.6;color:var(--charcoal);margin:0;font-family:'Anton',Inter,sans-serif;font-weight:400;text-transform:none;letter-spacing:0;max-width:600px;}
+  .testi-who{white-space:nowrap;text-align:right;padding-top:26px;}
+  .testi-name{font-weight:700;font-size:14px;color:var(--black);}
+  .testi-meta{font-size:12px;color:var(--fog);text-transform:uppercase;letter-spacing:0.04em;margin-top:4px;}
+  .testi-row:nth-child(2){margin-left:6%;}
+
+  /* ---------- PROCESS / WHY: flowing pairs, no boxes ---------- */
+  .why{background:var(--white);}
+  .why-flow{display:grid;grid-template-columns:1fr 1fr;gap:50px 60px;}
+  .why-flow > *{min-width:0;}
+  .why-item .num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:15px;color:var(--fog);letter-spacing:0.05em;margin-bottom:10px;display:block;}
+  .why-item h3{font-size:19px;margin:0 0 10px;font-family:'Inter';font-weight:700;letter-spacing:0;text-transform:none;}
+  .why-item p{font-size:14.5px;color:var(--steel);line-height:1.6;margin:0;}
+  .why-item:nth-child(2n){margin-top:36px;}
+
+  /* ---------- CTA / CONTACT ---------- */
+  .cta{background:var(--paper);}
+  .cta-panel{background:var(--black);color:var(--white);padding:70px 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;position:relative;overflow:hidden;}
+  .cta-panel > *{min-width:0;}
+  .cta-panel::before{content:'';position:absolute;top:-40%;right:-10%;width:420px;height:420px;border:1px solid rgba(255,255,255,0.08);border-radius:50%;}
+  .cta-left .eyebrow{color:var(--fog);}
+  .cta-left .eyebrow::before{background:var(--fog);}
+  .cta-left h2{font-size:clamp(32px,4vw,46px);color:#f0f0ef;margin:16px 0 20px;}
+  .cta-left p{color:var(--mist);font-size:15.5px;line-height:1.65;max-width:420px;margin:0 0 30px;}
+  .cta-contact-item{display:flex;align-items:center;gap:14px;margin-bottom:16px;font-size:15px;font-weight:600;}
+  .cta-contact-item svg{width:19px;height:19px;stroke:var(--accent);flex:none;}
+  .cta-contact-item a{text-decoration:none;color:var(--white);}
+  form.quote{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1;}
+  form.quote input, form.quote select, form.quote textarea{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);
+    color:var(--white);padding:15px 16px;font-family:inherit;font-size:14.5px;border-radius:2px;outline:none;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  form.quote input::placeholder, form.quote textarea::placeholder{color:var(--fog);}
+  form.quote select{color-scheme:light;}
+  form.quote option{color:#1c1d1f;background:#ffffff;}
+  form.quote input:focus, form.quote select:focus, form.quote textarea:focus{border-color:var(--white);background:rgba(255,255,255,0.1);}
+  form.quote label{font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fog);font-weight:700;margin-bottom:-6px;}
+  form.quote .row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  form.quote button{margin-top:8px;background:var(--white);color:var(--black);border:none;padding:16px;font-weight:800;
+    letter-spacing:0.05em;text-transform:uppercase;font-size:14px;border-radius:2px;cursor:pointer;transition:background .2s ease;}
+  form.quote button:hover{background:var(--accent);}
+  .form-note{font-size:12px;color:var(--fog);margin-top:2px;}
+  .consent-row{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--mist);line-height:1.5;margin-top:2px;}
+  .consent-row input{width:16px;height:16px;margin-top:2px;flex:none;accent-color:var(--white);}
+  .consent-row a{color:var(--white);text-decoration:underline;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--black);color:var(--fog);padding:44px 0 30px;border-top:1px solid rgba(255,255,255,0.08);}
+  .foot-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+  .foot-brand{display:flex;align-items:center;gap:12px;color:var(--white);}
+  .foot-brand img{height:38px;width:auto;filter:invert(1);}
+  .foot-brand span{font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.02em;}
+  .foot-links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px 22px;font-size:13px;max-width:100%;}
+  .foot-links a{text-decoration:none;color:var(--fog);}
+  .foot-links a:hover{color:var(--white);}
+  .foot-bottom{margin-top:30px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.08);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;}
+
+  /* ---------- DEMO BADGE ---------- */
+  .demo-badge{position:fixed;bottom:18px;left:18px;z-index:60;background:var(--black);color:var(--white);
+    padding:9px 16px;border-radius:999px;font-size:11.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    box-shadow:var(--shadow);display:flex;align-items:center;gap:8px;}
+  .demo-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#e9c46a;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    nav.links{display:none;}
+    .menu-btn{display:block;}
+    .service-feature{grid-template-columns:1fr;gap:32px;}
+    .service-feature .photo{order:-1;aspect-ratio:16/10;}
+    .service-row:nth-child(even){margin-left:0;}
+    .about-grid{grid-template-columns:1fr;}
+    .about-photo{order:-1;aspect-ratio:16/10;}
+    .about-stats{grid-template-columns:repeat(3,1fr);}
+    .testi-row:nth-child(2){margin-left:0;}
+    .why-flow{grid-template-columns:1fr;}
+    .why-item:nth-child(2n){margin-top:0;}
+    .cta-panel{grid-template-columns:1fr;padding:44px 26px;}
+  }
+  @media (max-width:560px){
+    section{padding:72px 0;}
+    .gallery-flow{grid-template-columns:1fr;}
+    .gallery-col:last-child{margin-top:0;}
+    .service-feature h3{font-size:30px;}
+    .testi-row{grid-template-columns:1fr;gap:12px;}
+    .testi-who{text-align:left;padding-top:0;}
+    form.quote .row{grid-template-columns:1fr;}
+    .hero-inner{padding-bottom:60px;}
+    .about-stats{grid-template-columns:1fr;gap:18px;}
+    .foot-grid{flex-direction:column;align-items:flex-start;}
+    .foot-links{justify-content:flex-start;}
+    .demo-badge{left:12px;bottom:12px;font-size:10.5px;padding:8px 13px;}
+    .nav{padding:10px 16px;gap:8px;}
+    .brand-stamp img{height:42px;width:auto;}
+    .nav-cta{gap:8px;}
+    .nav-phone{font-size:11px;}
+    .nav-cta .btn{padding:9px 12px;font-size:10.5px;}
+  }
+  @media (max-width:400px){
+    .nav-phone{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-badge">Concept preview, not yet live</div>
+
+<header>
+  <div class="nav">
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#about">About</a>
+    </nav>
+    <a href="#top" class="brand-stamp" aria-label="Click On Construction & Remodeling, home">
+      <img src="assets/img/logo.png?v=3" alt="Click On Construction & Remodeling logo">
+    </a>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+13136002077">(313) 600-2077</a>
+      <a class="btn btn-solid" href="#quote" style="padding:12px 22px;font-size:12.5px;">Free Estimate</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <img class="hero-img" src="assets/img/hero-fireplace.jpg" alt="Custom fireplace built by Click On Construction">
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">Metro Detroit · Licensed &amp; Insured</div>
+    <h1>Basements, built<br>to actually live in.</h1>
+    <p class="lede">Full basement remodels, walkouts, kitchens, bathrooms and fireplaces. Built by a crew that's been doing this for years, not a subcontractor lineup that changes every job.</p>
+    <div class="hero-actions">
+      <a href="#quote" class="btn btn-solid">Get a Free Estimate</a>
+      <a href="#work" class="btn btn-ghost">See Our Work</a>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<div class="trustbar">
+  <div class="wrap">
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> <b>Licensed &amp; Insured</b></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg> Background-Checked Crew</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg> <b>5.0</b>&nbsp;Rated · Residential &amp; Commercial</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg> 0% Interest Financing Available</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What We Do</div>
+      <h2>Built for the room you actually use.</h2>
+      <p>All-around renovation, with a heavy focus on basements: full remodels, walkouts, and everything that goes into making a bottom floor feel like the rest of the house.</p>
+    </div>
+    <div class="service-feature">
+      <div>
+        <span class="num">N&deg;01 &middot; Signature</span>
+        <h3>Basement Remodels &amp; Walkouts</h3>
+        <p>Full basement transformations, framing to finish, including custom basement walkouts. This is what we're known for.</p>
+      </div>
+      <div class="photo">
+        <img src="assets/img/basement-hallway.jpg" alt="Finished basement hallway">
+      </div>
+    </div>
+    <div class="service-list">
+      <div class="service-row">
+        <span class="num">N&deg;02</span>
+        <div><h3>Kitchens</h3><p>Cabinetry, islands, countertops and layouts that hold up to real daily use.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="num">N&deg;03</span>
+        <div><h3>Bathrooms</h3><p>Full bathroom remodels: tile, vanities, glass showers, modern fixtures.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="num">N&deg;04</span>
+        <div><h3>Custom Fireplaces</h3><p>Built-in surrounds and feature walls, designed around how the room is used.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="num">N&deg;05</span>
+        <div><h3>Flooring &amp; Finish Carpentry</h3><p>Hardwood, vinyl plank, staircases and trim for homes and commercial spaces alike.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="num">N&deg;06</span>
+        <div><h3>General Remodeling</h3><p>Decks, additions, and whole-home projects. If it needs building, we can take it on.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Recent Work</div>
+      <h2>A few finished projects.</h2>
+      <p>A mix of residential and commercial work across Metro Detroit. Real jobs, real spaces.</p>
+    </div>
+    <div class="gallery-flow">
+      <div class="gallery-col">
+        <figure><img src="assets/img/hero-fireplace.jpg" alt="Custom fireplace with mounted TV"><figcaption><span class="cap-title">Custom Fireplace Build</span><span class="cap-tag">Fireplace</span></figcaption></figure>
+        <figure><img src="assets/img/kitchen-island.jpg" alt="Modern kitchen island with brass hardware"><figcaption><span class="cap-title">Kitchen Remodel</span><span class="cap-tag">Kitchen</span></figcaption></figure>
+        <figure><img src="assets/img/commercial-flooring.jpg" alt="Commercial flooring project"><figcaption><span class="cap-title">Commercial Flooring</span><span class="cap-tag">Commercial</span></figcaption></figure>
+        <figure><img src="assets/img/deck.jpg" alt="Finished deck build"><figcaption><span class="cap-title">Deck Build</span><span class="cap-tag">General Remodeling</span></figcaption></figure>
+      </div>
+      <div class="gallery-col">
+        <figure><img src="assets/img/bathroom-marble.jpg" alt="Black marble luxury bathroom remodel"><figcaption><span class="cap-title">Bathroom Remodel</span><span class="cap-tag">Bathroom</span></figcaption></figure>
+        <figure><img src="assets/img/staircase.jpg" alt="Finished hardwood staircase"><figcaption><span class="cap-title">Staircase</span><span class="cap-tag">Finish Carpentry</span></figcaption></figure>
+        <figure><img src="assets/img/basement-hallway.jpg" alt="Finished basement hallway"><figcaption><span class="cap-title">Basement Finishing</span><span class="cap-tag">Basement</span></figcaption></figure>
+        <figure><img src="assets/img/bathroom-modern.jpg" alt="Modern powder room with backlit mirror"><figcaption><span class="cap-title">Powder Room</span><span class="cap-tag">Bathroom</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <img src="assets/img/logo.png?v=3" alt="Click On Construction & Remodeling" class="section-mark" style="filter:invert(1);margin-bottom:28px;">
+        <div class="eyebrow">The Builder</div>
+        <h2>Hands-on, from foundation to final coat.</h2>
+        <p>Click On Construction &amp; Remodeling is run by Joey Shdid, a licensed, background-checked contractor based in the Dearborn / Metro Detroit area. Family-oriented and hands-on, Joey leads every job personally instead of handing it off. That's why the work looks the same whether it's a basement walkout or a commercial flooring job.</p>
+        <p>The focus has always been basements: full remodels and custom walkouts, alongside kitchens, bathrooms, fireplaces, and general remodeling for homes and businesses across the area.</p>
+        <div class="about-stats">
+          <div><b>2017</b><span>Founded</span></div>
+          <div><b>5.0</b><span>Star Rating</span></div>
+          <div><b>6+</b><span>Team Members</span></div>
+        </div>
+      </div>
+      <div class="about-photo">
+        <img src="assets/img/deck.jpg" alt="Finished deck build by Click On Construction">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Client Reviews</div>
+      <h2>What people actually say.</h2>
+      <p>Real, verified reviews from Thumbtack.</p>
+    </div>
+    <div class="testi-flow">
+      <div class="testi-row">
+        <div>
+          <span class="stars">★★★★★</span>
+          <p>"I recently hired Click On Construction to install wood planks in my overhang ceiling, and I am thoroughly impressed with the results."</p>
+        </div>
+        <div class="testi-who"><div class="testi-name">Hani A.</div><div class="testi-meta">General Contracting</div></div>
+      </div>
+      <div class="testi-row">
+        <div>
+          <span class="stars">★★★★★</span>
+          <p>"Huss and his team were super professional and on time, they did my basement remodel and it was absolutely refreshing."</p>
+        </div>
+        <div class="testi-who"><div class="testi-name">Mohammad S.</div><div class="testi-meta">Basement Remodel</div></div>
+      </div>
+      <div class="testi-row">
+        <div>
+          <span class="stars">★★★★★</span>
+          <p>"Joey and his crew were very professional and completed the job in a timely manner with excellent work!"</p>
+        </div>
+        <div class="testi-who"><div class="testi-name">Sam C.</div><div class="testi-meta">Home Remodeling</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="why">
+  <div class="wrap" style="padding:90px 28px;">
+    <div class="sec-head" style="margin-bottom:50px;">
+      <div class="eyebrow">Why Click On Construction</div>
+      <h2>No surprises. Just the work.</h2>
+    </div>
+    <div class="why-flow">
+      <div class="why-item"><span class="num">N&deg;01</span><h3>Licensed &amp; Insured</h3><p>Every job is covered. No exceptions, no gray area.</p></div>
+      <div class="why-item"><span class="num">N&deg;02</span><h3>One Crew, Start to Finish</h3><p>The same team that quotes the job builds the job.</p></div>
+      <div class="why-item"><span class="num">N&deg;03</span><h3>Financing Available</h3><p>0% interest options. Pay by card, Zelle, Venmo or cash.</p></div>
+      <div class="why-item"><span class="num">N&deg;04</span><h3>Residential &amp; Commercial</h3><p>From basements to restaurant build-outs.</p></div>
+    </div>
+  </div>
+</div>
+
+<section class="cta" id="quote">
+  <div class="wrap">
+    <div class="cta-panel">
+      <div class="cta-left">
+        <img src="assets/img/logo.png?v=3" alt="Click On Construction & Remodeling" class="section-mark" style="filter:invert(1);margin-bottom:28px;">
+        <div class="eyebrow">Start Your Project</div>
+        <h2>Let's talk about your space.</h2>
+        <p>Tell us a bit about what you're looking to do (basement, kitchen, bathroom, or something else entirely) and we'll follow up with a free estimate.</p>
+        <div class="cta-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+13136002077">(313) 600-2077</a>
+        </div>
+        <div class="cta-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <span>Serving Metro Detroit &amp; Dearborn Heights</span>
+        </div>
+      </div>
+      <form class="quote" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks, we\'ll be in touch!'; this.querySelector('button').style.background='var(--accent)';">
+        <label>Name</label>
+        <input type="text" placeholder="Your full name" required>
+        <div class="row">
+          <div>
+            <label>Phone</label>
+            <input type="tel" placeholder="(313) 000-0000" required>
+          </div>
+          <div>
+            <label>Project Type</label>
+            <select required>
+              <option value="" disabled selected>Select one</option>
+              <option>Basement Remodel / Walkout</option>
+              <option>Kitchen</option>
+              <option>Bathroom</option>
+              <option>Fireplace</option>
+              <option>Commercial</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <label>Tell us about the project</label>
+        <textarea rows="3" placeholder="A few details on what you're looking to do..."></textarea>
+        <label class="consent-row">
+          <input type="checkbox" required>
+          <span>I agree to be contacted by Click On Construction &amp; Remodeling by phone, text, or email about my project. See our <a href="privacy.html" target="_blank">Privacy Policy</a>.</span>
+        </label>
+        <button type="submit">Request Free Estimate</button>
+        <div class="form-note">Demo form. Not yet wired to send. Will connect to email/SMS on the final build.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/img/logo.png?v=3" alt="Click On Construction & Remodeling logo">
+        <span>CLICK ON CONSTRUCTION &amp; REMODELING</span>
+      </div>
+      <div class="foot-links">
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="https://instagram.com/clickonconstruction" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/mhmd.shdid" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.thumbtack.com/mi/dearborn-heights/general-contractors/click-on-construction/service/552867083464114185" target="_blank" rel="noopener">Thumbtack</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Click On Construction &amp; Remodeling. Metro Detroit, MI. Est. 2017.</span>
+      <span>Licensed &amp; Insured · Free Estimates</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
