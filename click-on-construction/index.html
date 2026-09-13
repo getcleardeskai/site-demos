@@ -49,7 +49,7 @@
     --r-md: 10px;
     --r-lg: 16px;
   }
-  *{box-sizing:border-box;min-width:0;}
+  *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   html,body{overflow-x:hidden;max-width:100%;}
   body{
@@ -247,12 +247,13 @@
   .cta-contact-item svg{width:19px;height:19px;stroke:var(--accent);flex:none;}
   .cta-contact-item a{text-decoration:none;color:var(--white);}
   form.quote{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1;}
-  form.quote input, form.quote select, form.quote textarea{
+  form.quote input:not([type=checkbox]), form.quote select, form.quote textarea{
     width:100%;min-width:0;box-sizing:border-box;
     background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);
     color:var(--white);padding:15px 16px;font-family:inherit;font-size:14.5px;border-radius:var(--r-md);outline:none;
     transition:border-color .2s ease, background .2s ease;
   }
+  form.quote input[type=checkbox]{width:16px;flex:none;}
   form.quote input::placeholder, form.quote textarea::placeholder{color:var(--fog);}
   form.quote select{color-scheme:light;}
   form.quote option{color:#1c1d1f;background:#ffffff;}
